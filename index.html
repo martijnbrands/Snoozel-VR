@@ -9,19 +9,21 @@
     <!-- Environment component -->
     <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
     <!-- Particle component -->
-    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-spe-particles-component@^1.0.4/dist/aframe-spe-particles-component.min.js"></script>
+</head>
   </head>
   <body>
-    <a-scene background="color: #FAFAFA">
+    <a-scene background="color: #000">
+        <a-entity position="0 2.25 -15" particle-system="preset: default; type: 1; particleCount: 5; color: #EF0000,#44CC00; positionSpread: 0 0 0;"></a-entity>
       <a-camera></a-camera>
-      <a-entity id="room" position="0 0 4">
+      <!-- <a-entity id="room" position="0 0 4">
         <a-box position="0 3 0" width="0.5" depth="0.5" height="6" rotation="" color="#FAFAFA" material="" geometry="width: 8; depth: 0.1"></a-box>
         <a-box position="-4 3 -4" width="0.5" depth="0.5" height="6" rotation="0 90 0" color="#FAFAFA" material="" geometry="width: 8; depth: 0.1"></a-box>
         <a-box position="0 3 -8" width="0.5" depth="0.5" height="6" rotation="" color="#FAFAFA" material="" geometry="width: 8; depth: 0.1"></a-box>
         <a-box position="4 3 -4" width="0.5" depth="0.5" height="6" rotation="0 90 0" color="#FAFAFA" material="" geometry="width: 8; depth: 0.1"></a-box>
         <a-plane position="0 0 -4" rotation="-90 0 0" width="8" height="8" color="#7BC8A4" shadow="" material="" geometry=""></a-plane>
         <a-plane position="0 -4 -4" rotation="-90 0 0" width="8" height="8" color="#7BC8A4" shadow="" material="" geometry=""></a-plane>
-    </a-entity>
+    </a-entity> -->
     </a-scene>
   </body>
 </html>
