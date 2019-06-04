@@ -9,21 +9,32 @@
     <!-- Environment component -->
     <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
     <!-- Particle component -->
-    <script src="https://unpkg.com/aframe-spe-particles-component@^1.0.4/dist/aframe-spe-particles-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
 </head>
   </head>
   <body>
-    <a-scene background="color: #000">
-        <a-entity position="0 2.25 -15" particle-system="preset: default; type: 1; particleCount: 5; color: #EF0000,#44CC00; positionSpread: 0 0 0;"></a-entity>
+    <a-scene background="color: #ffff" light="defaultLightsEnabled: false">
       <a-camera></a-camera>
-      <!-- <a-entity id="room" position="0 0 4">
-        <a-box position="0 3 0" width="0.5" depth="0.5" height="6" rotation="" color="#FAFAFA" material="" geometry="width: 8; depth: 0.1"></a-box>
-        <a-box position="-4 3 -4" width="0.5" depth="0.5" height="6" rotation="0 90 0" color="#FAFAFA" material="" geometry="width: 8; depth: 0.1"></a-box>
-        <a-box position="0 3 -8" width="0.5" depth="0.5" height="6" rotation="" color="#FAFAFA" material="" geometry="width: 8; depth: 0.1"></a-box>
-        <a-box position="4 3 -4" width="0.5" depth="0.5" height="6" rotation="0 90 0" color="#FAFAFA" material="" geometry="width: 8; depth: 0.1"></a-box>
-        <a-plane position="0 0 -4" rotation="-90 0 0" width="8" height="8" color="#7BC8A4" shadow="" material="" geometry=""></a-plane>
-        <a-plane position="0 -4 -4" rotation="-90 0 0" width="8" height="8" color="#7BC8A4" shadow="" material="" geometry=""></a-plane>
-    </a-entity> -->
+      <a-entity id="room" position="0 0 4">
+        <a-box position="0 3 0" width="0.5" depth="0.5" height="6" rotation="" color="#fff" material="" geometry="width: 8; depth: 0.1"></a-box>
+        <a-box position="-4 3 -4" width="0.5" depth="0.5" height="6" rotation="0 90 0" color="#fff" material="" geometry="width: 8; depth: 0.1"></a-box>
+        <a-box position="0 3 -8" width="0.5" depth="0.5" height="6" rotation="" color="#fff" material="" geometry="width: 8; depth: 0.1"></a-box>
+        <a-box position="4 3 -4" width="0.5" depth="0.5" height="6" rotation="0 90 0" color="#fff" material="" geometry="width: 8; depth: 0.1"></a-box>
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="8" height="8" color="#fff" shadow="" material="" geometry=""></a-plane>
+        <a-plane position="0 6 -4" rotation="-90 0 0" width="8" height="8" color="#000" shadow="" material="" geometry=""></a-plane>
+      </a-entity>
+      <!-- Green pipe -->
+      <!-- <a-cylinder position="3 0 -3" color="#fa7103" scale="0.5 0.5 0.5" height="20" width="0.1" open-ended="true" material="" geometry=""></a-cylinder>
+      <a-cylinder position="2 0 -3" color="#6bfd16" scale="0.5 0.5 0.5" height="15" width="0.1" open-ended="true" material="" geometry=""></a-cylinder>
+      <a-cylinder position="2 0 -2" color="#443fea" scale="0.5 0.5 0.5" height="8" width="0.1" open-ended="true" material="" geometry=""></a-cylinder> -->
+      <!-- Red directional light shining from the top left. -->
+      <!-- <a-light color="red" position="-1 1 0"></a-light> -->
+
+      <!-- Blue point light, 5 meters in the air. -->
+      
+      <!-- <a-light type="point" color="blue" position="0 5 0"></a-light> -->
+      <a-light type="point" color="blue" position="0 6 0" light="color: #739efc"></a-light>
+      <a-light type="spot" color="pink" position="-3.60534 -0.0321 -3.56635" rotation="70 18 -70" light="color: #ff00b2"></a-light>
     </a-scene>
   </body>
 </html>
