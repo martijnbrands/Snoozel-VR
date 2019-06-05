@@ -11,11 +11,18 @@
     <!-- Particle component -->
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
     <!-- Randomize component -->
-    <script src="https://unpkg.com/aframe-randomize-component@^0.3.0/aframe-randomize-component.js"></script>
+    <script src="https://harlyq.github.io/aframe-randomize-component/aframe-randomize-component.js"></script>
+    <!-- Entity Generator -->
+    <script src="https://unpkg.com/aframe-entity-generator-component@3.0.2/dist/aframe-entity-generator-component.min.js"></script>
 </head>
   </head>
   <body>
     <a-scene background="color: #fff" light="defaultLightsEnabled: false">
+        <a-assets>
+            <a-mixin id="randomBubble" geometry="primitive: sphere" randomize="position:3 0 -3..2 3 -2"  scale="0.05 0.05 0.05"></a-mixin>
+          </a-assets>
+      
+          <a-entity entity-generator="mixin: randomBubble; num:100" ></a-entity>
       <a-camera>
           <a-cursor></a-cursor>
       </a-camera>
@@ -30,7 +37,7 @@
       <!-- Tubes -->
       <a-entity id="tube">
         <a-cylinder position="3 2 -3" color="#ff00e0" scale="0.5 0.5 0.5" height="8" width="0.1" open-ended="true" material="transparent: true; opacity: 0.5"  geometry=""></a-cylinder>
-        <a-sphere position="3 0 -3" radius="0.05" animation="property: position; to: 3 4 -3; loop: true; dir: forwards; dur: 3000"></a-sphere>
+        <a-sphere position="3 0 -3" randomize="material.color:red|#0f0|#0000ff" radius="0.05" animation="property: position; to: 3 4 -3; loop: true; dir: forwards; dur: 3000"></a-sphere>
       </a-entity>
       
 
