@@ -19,10 +19,10 @@
   <body>
     <a-scene background="color: #fff" light="defaultLightsEnabled: false">
         <a-assets>
-            <a-mixin id="randomBubble" geometry="primitive: sphere" randomize="position:3 0 -3..2 3 -2"  scale="0.05 0.05 0.05"></a-mixin>
+            <a-mixin id="randomBubble" geometry="primitive: sphere" randomize="position:2.7 0 -2.7..3.3 4 -3.3; scale:0.01 0.01 0.01|0.03 0.03 0.03|0.05 0.05 0.05"></a-mixin>
           </a-assets>
       
-          <a-entity entity-generator="mixin: randomBubble; num:100" ></a-entity>
+          <a-entity entity-generator="mixin: randomBubble; num:200" ></a-entity>
       <a-camera>
           <a-cursor></a-cursor>
       </a-camera>
@@ -31,20 +31,20 @@
         <a-box position="-4 3 -4" width="0.5" depth="0.5" height="6" rotation="0 90 0" color="#fff" material="" geometry="width: 8; depth: 0.1"></a-box>
         <a-box position="0 3 -8" width="0.5" depth="0.5" height="6" rotation="" color="#fff" material="" geometry="width: 8; depth: 0.1"></a-box>
         <a-box position="4 3 -4" width="0.5" depth="0.5" height="6" rotation="0 90 0" color="#fff" material="" geometry="width: 8; depth: 0.1"></a-box>
-        <a-plane position="0 0 -4" rotation="-90 0 0" width="8" height="8" color="#fff" shadow="" material="" geometry=""></a-plane>
-        <a-plane position="0 6 -4" rotation="-90 0 0" width="8" height="8" color="#000" shadow="" material="" geometry=""></a-plane>
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="8" height="8" color="#fff"></a-plane>
+        <a-plane position="0 6 -4" rotation="-90 0 0" width="8" height="8" color="#000"></a-plane>
       </a-entity>
       <!-- Tubes -->
       <a-entity id="tube">
-        <a-cylinder position="3 2 -3" color="#ff00e0" scale="0.5 0.5 0.5" height="8" width="0.1" open-ended="true" material="transparent: true; opacity: 0.5"  geometry=""></a-cylinder>
-        <a-sphere position="3 0 -3" randomize="material.color:red|#0f0|#0000ff" radius="0.05" animation="property: position; to: 3 4 -3; loop: true; dir: forwards; dur: 3000"></a-sphere>
+        <a-cylinder position="3 0.25 -3" color="#ffffff" scale="0.55 0.55 0.55" height="1" width="0.1"></a-cylinder>
+        <a-cylinder position="3 2 -3" color="#ff00e0" scale="0.5 0.5 0.5" height="8" width="0.1" open-ended="true" material="transparent: true; opacity: 0.5"></a-cylinder>
       </a-entity>
       
 
       <!-- Lighting -->
       <a-light type="point" color="blue" position="0 6 0" light="color: #739efc"></a-light>
       <a-light type="spot" color="pink" position="-3.6 0 -3.6" rotation="70 50 -70" light="color: #ff00b2"></a-light>
-      <a-light type="spot" animation="property: light.color; to: #ff00e8; loop: true; dir: alternate; dur: 1000" position="2.60474 0.47545 -2.82373" rotation="14.807521257360996 -86.29775718701434 -101.84382104229896" light="intensity: 0.5 color: #00ffe4; angle: 5">
+      <!-- <a-light type="spot" animation="property: light.color; to: #ff00e8; loop: true; dir: alternate; dur: 1000" position="2.60474 0.47545 -2.82373" rotation="14.807521257360996 -86.29775718701434 -101.84382104229896" light="intensity: 0.5 color: #00ffe4; angle: 5"> -->
       </a-light>
     </a-scene>
   </body>
