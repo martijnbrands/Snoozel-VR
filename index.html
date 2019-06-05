@@ -10,6 +10,8 @@
     <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
     <!-- Particle component -->
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <!-- Randomize component -->
+    <script src="https://unpkg.com/aframe-randomize-component@^0.3.0/aframe-randomize-component.js"></script>
 </head>
   </head>
   <body>
@@ -26,9 +28,11 @@
         <a-plane position="0 6 -4" rotation="-90 0 0" width="8" height="8" color="#000" shadow="" material="" geometry=""></a-plane>
       </a-entity>
       <!-- Tubes -->
-      <a-cylinder position="3 2 -3" color="#ff00e0" scale="0.5 0.5 0.5" height="8" width="0.1" open-ended="true" material="" geometry=""></a-cylinder>
-      <!-- <a-cylinder position="2 0 -3" color="#6bfd16" scale="0.5 0.5 0.5" height="15" width="0.1" open-ended="true" material="" geometry=""></a-cylinder>
-      <a-cylinder position="2 0 -2" color="#443fea" scale="0.5 0.5 0.5" height="8" width="0.1" open-ended="true" material="" geometry=""></a-cylinder> -->
+      <a-entity id="tube">
+        <a-cylinder position="3 2 -3" color="#ff00e0" scale="0.5 0.5 0.5" height="8" width="0.1" open-ended="true" material="transparent: true; opacity: 0.5"  geometry=""></a-cylinder>
+        <a-sphere position="3 0 -3" radius="0.05" animation="property: position; to: 3 4 -3; loop: true; dir: forwards; dur: 3000"></a-sphere>
+      </a-entity>
+      
 
       <!-- Lighting -->
       <a-light type="point" color="blue" position="0 6 0" light="color: #739efc"></a-light>
