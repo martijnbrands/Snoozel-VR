@@ -14,7 +14,9 @@
     <script src="https://harlyq.github.io/aframe-randomize-component/aframe-randomize-component.js"></script>
     <!-- Entity Generator -->
     <script src="https://unpkg.com/aframe-entity-generator-component@3.0.2/dist/aframe-entity-generator-component.min.js"></script>
+    <!-- Physics system -->
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
+    <!-- Event set component -->
     <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
 </head>
   </head>
@@ -26,9 +28,9 @@
       </a-assets>
 
       <a-camera>
-          <a-cursor material="color:#ffff00;"></a-cursor>
+          <a-cursor material="color: #ffff00;"></a-cursor>
       </a-camera>
-      
+
       <a-entity id="room" position="0 0 4">
         <a-box position="0 3 0" width="0.5" depth="0.5" height="6" rotation="" color="#fff" material="" geometry="width: 8; depth: 0.1"></a-box>
         <a-box position="-4 3 -4" width="0.5" depth="0.5" height="6" rotation="0 90 0" color="#fff" material="" geometry="width: 8; depth: 0.1"></a-box>
@@ -57,10 +59,59 @@
              spring="target: #three;">
        </a-box> -->
 
-      <a-entity id="tv-pattern">
-        <a-box position="0 2 3.9" color="#4CC3D9" geometry="depth:  0.1" 
-          event-set__enter="_event: mouseenter; color: #8FF7FF"
-          event-set__leave="_event: mouseleave; color: #4CC3D9"></a-box>
+      <a-entity id="grid-wall">
+        <!-- Bottom row -->
+        <a-box position="3 1 3.9" color="#4CC3D9" geometry="depth:  0.1; width:2; height:2;" 
+          event-set__enter="_event: mouseenter; color: #f2f4f6"
+          event-set__leave="_event: mouseleave; color: #4CC3D9">
+        </a-box>
+        <a-box position="1 1 3.9" color="#4CC3D9" geometry="depth:  0.1; width:2; height:2;" 
+          event-set__enter="_event: mouseenter; color: #1ee3cf"
+          event-set__leave="_event: mouseleave; color: #4CC3D9">
+        </a-box>
+        <a-box position="-1 1 3.9" color="#4CC3D9" geometry="depth:  0.1; width:2; height:2;" 
+          event-set__enter="_event: mouseenter; color: #6b48ff"
+          event-set__leave="_event: mouseleave; color: #4CC3D9">
+        </a-box>
+        <a-box position="-3 1 3.9" color="#4CC3D9" geometry="depth:  0.1; width:2; height:2;" 
+          event-set__enter="_event: mouseenter; color: #0d3f67"
+          event-set__leave="_event: mouseleave; color: #4CC3D9">
+        </a-box>
+        <!-- Middle row -->
+        <a-box position="3 3 3.9" color="#4CC3D9" geometry="depth:  0.1; width:2; height:2;" 
+          event-set__enter="_event: mouseenter; color: #eeeeee"
+          event-set__leave="_event: mouseleave; color: #4CC3D9">
+        </a-box>
+        <a-box position="1 3 3.9" color="#4CC3D9" geometry="depth:  0.1; width:2; height:2;" 
+          event-set__enter="_event: mouseenter; color: #b206b0"
+          event-set__leave="_event: mouseleave; color: #4CC3D9">
+        </a-box>
+        <a-box position="-1 3 3.9" color="#4CC3D9" geometry="depth:  0.1; width:2; height:2;" 
+          event-set__enter="_event: mouseenter; color: #ff4949"
+          event-set__leave="_event: mouseleave; color: #4CC3D9">
+        </a-box>
+        <a-box position="-3 3 3.9" color="#4CC3D9" geometry="depth:  0.1; width:2; height:2;" 
+          event-set__enter="_event: mouseenter; color: #c10000"
+          event-set__leave="_event: mouseleave; color: #4CC3D9">
+        </a-box>
+        <!-- Top row -->
+        <a-box position="3 5 3.9" color="#4CC3D9" geometry="depth:  0.1; width:2; height:2;" 
+          event-set__enter="_event: mouseenter; color: #b206b0"
+          event-set__leave="_event: mouseleave; color: #4CC3D9">
+        </a-box>
+        <a-box position="1 5 3.9" color="#4CC3D9" geometry="depth:  0.1; width:2; height:2;" 
+          event-set__enter="_event: mouseenter; color: #ff8246"
+          event-set__leave="_event: mouseleave; color: #4CC3D9">
+        </a-box>
+        <a-box position="-1 5 3.9" color="#4CC3D9" geometry="depth:  0.1; width:2; height:2;" 
+          event-set__enter="_event: mouseenter; color: #6c5ce7"
+          event-set__leave="_event: mouseleave; color: #4CC3D9">
+        </a-box>
+        <a-box position="-3 5 3.9" color="#4CC3D9" geometry="depth:  0.1; width:2; height:2;" 
+          event-set__enter="_event: mouseenter; color: #94fc13"
+          event-set__leave="_event: mouseleave; color: #4CC3D9">
+        </a-box>
+        
       </a-entity>
 
        <!-- Sealing Video -->
