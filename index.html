@@ -23,11 +23,11 @@
 </head>
   </head>
   <body>
-    <a-scene background="color: #fff" light="defaultLightsEnabled: false">
+    <a-scene background="color: #fff" light="defaultLightsEnabled: true">
       <a-assets>
-          <a-mixin id="randomBlueBubble" geometry="primitive: sphere" randomize="position:3.4 0 -3.4..3.6 4 -3.6; scale:0.01 0.01 0.01|0.02 0.02 0.02|0.03 0.03 0.03;"></a-mixin>
-          <a-mixin id="randomYellowBubble" geometry="primitive: sphere" randomize="position:1.9 0 -2.9..2.1 4 -3.1; scale:0.01 0.01 0.01|0.02 0.02 0.02|0.03 0.03 0.03;"></a-mixin>
-          <a-mixin id="randomPinkBubble" geometry="primitive: sphere" randomize="position:2.9 0 -1.9..3.1 4 -2.1; scale:0.01 0.01 0.01|0.02 0.02 0.02|0.03 0.03 0.03;"></a-mixin>
+          <a-mixin id="randomBlueBubble" material="color: #0098f1;" geometry="primitive: sphere" randomize="position:3.4 0 -3.4..3.6 4 -3.6; scale:0.01 0.01 0.01|0.02 0.02 0.02|0.03 0.03 0.03;"></a-mixin>
+          <a-mixin id="randomYellowBubble" material="color: #ffee00;" geometry="primitive: sphere" randomize="position:1.9 0 -2.9..2.1 4 -3.1; scale:0.01 0.01 0.01|0.02 0.02 0.02|0.03 0.03 0.03;"></a-mixin>
+          <a-mixin id="randomPinkBubble" material="color: #ff008d;" geometry="primitive: sphere" randomize="position:2.9 0 -1.9..3.1 4 -2.1; scale:0.01 0.01 0.01|0.02 0.02 0.02|0.03 0.03 0.03;"></a-mixin>
           <a-mixin id="blueBubbleAnimation" animation="property: object3D.position.y; to: 4.5; loop: true; dir: forwards easing:easeInCubic;" randomize="animation.dur:2000..6000"></a-mixin>
           <a-mixin id="yellowBubbleAnimation" animation="property: object3D.position.y; to: 3.5; loop: true; dir: forwards easing:easeInCubic;" randomize="animation.dur:2000..6000"></a-mixin>
           <a-mixin id="pinkBubbleAnimation" animation="property: object3D.position.y; to: 3; loop: true; dir: forwards easing:easeInCubic;" randomize="animation.dur:2000..6000"></a-mixin>
@@ -42,18 +42,17 @@
       <a-entity star-system></a-entity>
 
       <a-entity id="room" position="0 0 4">
-        <a-box position="0 3 0" width="0.5" depth="0.5" height="6" rotation="" color="#fff" material="" geometry="width: 8; depth: 0.1"></a-box>
-        <a-box position="-4 3 -4" width="0.5" depth="0.5" height="6" rotation="0 90 0" color="#fff" material="" geometry="width: 8; depth: 0.1"></a-box>
-        <a-box position="0 3 -8" width="0.5" depth="0.5" height="6" rotation="" color="#fff" material="" geometry="width: 8; depth: 0.1"></a-box>
-        <a-box position="4 3 -4" width="0.5" depth="0.5" height="6" rotation="0 90 0" color="#fff" material="" geometry="width: 8; depth: 0.1"></a-box>
-        <a-plane position="0 0 -4" rotation="-90 0 0" width="8" height="8" color="#fff"></a-plane>
+        <a-box position="0 3 0" width="0.5" depth="0.5" height="6" rotation="" color="red" material="" geometry="width: 8; depth: 0.1"></a-box>
+        <a-box position="-4 3 -4" width="0.5" depth="0.5" height="6" rotation="0 90 0" color="green" material="" geometry="width: 8; depth: 0.1"></a-box>
+        <a-box position="0 3 -8" width="0.5" depth="0.5" height="6" rotation="" color="black" material="" geometry="width: 8; depth: 0.1"></a-box>
+        <a-box position="4 3 -4" width="0.5" depth="0.5" height="6" rotation="0 90 0" color="purple" material="" geometry="width: 8; depth: 0.1"></a-box>
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="8" height="8" color="grey"></a-plane>
       </a-entity>
 
-      
-      <a-cylinder id="tube_stand" position="4 0.25 -4" color="#ffffff" height="1" width="0.1" geometry="height: 0.5; radius: 3; segmentsRadial: 180"></a-cylinder>
+      <a-cylinder id="tube_stand" position="4 0.25 -4" color="#051536" height="1" width="0.1" geometry="height: 0.5; radius: 3; segmentsRadial: 180"></a-cylinder>
       <!-- Blue tube -->
       <a-entity id="blue_tube">
-        <a-cylinder position="3.5 0.6 -3.5" color="#ffffff" height="1" width="0.1" geometry="height: 0.25; radius: 0.25;"></a-cylinder>
+        <a-cylinder position="3.5 0.6 -3.5" color="#9e9e9e" height="1" width="0.1" geometry="height: 0.25; radius: 0.25;" material="src: assets/metal_texture.jpg;"></a-cylinder>
         <a-cylinder position="3.5 0.6 -3.5" color="#0098f1" height="8" width="0.1" geometry="height: 8; radius: 0.2;" open-ended="true" material="transparent: true; opacity: 0.5"></a-cylinder>
         <!-- <a-light type="spot" position="3 0 -3" rotation="90 0 0" light="type:  spot;  color:  #00f0ff;  angle:  15;  distance:  3.5;  intensity:  3"></a-light> -->
         <!-- IMPORTANT FIRST ADD THE ANIMATION MIXIN AND THEN THE GEOMETRY MIXIN -->
@@ -62,7 +61,7 @@
 
       <!-- Yellow tube -->
       <a-entity id="yellow_tube">
-        <a-cylinder position="2 0.6 -3" color="#ffffff" height="1" width="0.1" geometry="height: 0.5; radius: 0.5;"></a-cylinder>
+        <a-cylinder position="2 0.6 -3" color="#9e9e9e" height="1" width="0.1" geometry="height: 0.5; radius: 0.5;" material="src: assets/metal_texture.jpg;"></a-cylinder>
         <a-cylinder position="2 0.6 -3" color="#ffee00" height="8" width="0.1" geometry="height: 6; radius: 0.2;" open-ended="true" material="transparent: true; opacity: 0.5"></a-cylinder>
         <!-- <a-light type="spot" position="3 0 -3" rotation="90 0 0" light="type:  spot;  color:  #00f0ff;  angle:  15;  distance:  3.5;  intensity:  3"></a-light> -->
         <!-- IMPORTANT FIRST ADD THE ANIMATION MIXIN AND THEN THE GEOMETRY MIXIN -->
@@ -71,7 +70,7 @@
 
       <!-- Pink tube -->
       <a-entity id="pink_tube">
-          <a-cylinder position="3 0.6 -2" color="#ffffff" height="1" width="0.1" geometry="height: 0.3; radius: 0.3;"></a-cylinder>
+          <a-cylinder position="3 0.6 -2" color="#9e9e9e" height="1" width="0.1" geometry="height: 0.3; radius: 0.3;" material="src: assets/metal_texture.jpg;"></a-cylinder>
           <a-cylinder position="3 0.6 -2" color="#ff008d" height="8" width="0.1" geometry="height: 5; radius: 0.2;" open-ended="true" material="transparent: true; opacity: 0.5"></a-cylinder>
           <!-- <a-light type="spot" position="3 0 -3" rotation="90 0 0" light="type:  spot;  color:  #00f0ff;  angle:  15;  distance:  3.5;  intensity:  3"></a-light> -->
           <!-- IMPORTANT FIRST ADD THE ANIMATION MIXIN AND THEN THE GEOMETRY MIXIN -->
@@ -133,10 +132,10 @@
       </a-entity>
 
       <!-- Pillow -->
-      <!-- <a-entity gltf-model="url(/assets/pillow.gltf)"></a-entity> -->
+      <a-entity gltf-model="url(/assets/pillow.gltf)"></a-entity>
        
       <!-- Lighting -->
-      <a-light type="point" color="blue" position="0 6 0" light="color: #739efc"></a-light>
+      <!-- <a-light type="point" color="blue" position="0 6 0" light="color: #739efc"></a-light> -->
       <!-- <a-light type="spot" color="pink" position="-3.6 0 -3.6" rotation="70 50 -70" light="color: #ff00b2"></a-light> -->
       <!-- <a-light type="spot" animation="property: light.color; to: #ff00e8; loop: true; dir: alternate; dur: 1000" position="2.60474 0.47545 -2.82373" rotation="14.807521257360996 -86.29775718701434 -101.84382104229896" light="intensity: 0.5 color: #00ffe4; angle: 5"> -->
       </a-light>
