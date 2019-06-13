@@ -23,7 +23,7 @@
 </head>
   </head>
   <body>
-    <a-scene background="color: #fff" light="defaultLightsEnabled: true">
+    <a-scene background="color: #fff">
       <a-assets>
           <a-mixin id="randomBlueBubble" material="color: #0098f1;" geometry="primitive: sphere" randomize="position:3.4 0 -3.4..3.6 4 -3.6; scale:0.01 0.01 0.01|0.02 0.02 0.02|0.03 0.03 0.03;"></a-mixin>
           <a-mixin id="randomYellowBubble" material="color: #ffee00;" geometry="primitive: sphere" randomize="position:1.9 0 -2.9..2.1 4 -3.1; scale:0.01 0.01 0.01|0.02 0.02 0.02|0.03 0.03 0.03;"></a-mixin>
@@ -132,9 +132,13 @@
       </a-entity>
 
       <!-- Pillow -->
-      <a-entity gltf-model="url(/assets/pillow.gltf)"></a-entity>
+      <!-- <a-entity gltf-model="url(/assets/pillow.gltf)"></a-entity> -->
+      <a-entity gltf-model="/assets/pillow.gltf" position="-2.63908 0 -2.4926" rotation="0 45 0"></a-entity>
+      <a-entity gltf-model="/assets/pillow.gltf" position="-3.30729 0.77114 -3.1234" rotation="90 50 0" scale="0.5 0.5 0.5"></a-entity>
        
       <!-- Lighting -->
+      <a-entity light="color: #BBB; type: ambient"></a-entity>
+      <a-entity light="intensity: 0.6; castShadow: true" position="-0.5 1 1"></a-entity>
       <!-- <a-light type="point" color="blue" position="0 6 0" light="color: #739efc"></a-light> -->
       <!-- <a-light type="spot" color="pink" position="-3.6 0 -3.6" rotation="70 50 -70" light="color: #ff00b2"></a-light> -->
       <!-- <a-light type="spot" animation="property: light.color; to: #ff00e8; loop: true; dir: alternate; dur: 1000" position="2.60474 0.47545 -2.82373" rotation="14.807521257360996 -86.29775718701434 -101.84382104229896" light="intensity: 0.5 color: #00ffe4; angle: 5"> -->
