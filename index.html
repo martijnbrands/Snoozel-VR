@@ -23,20 +23,20 @@
 </head>
   </head>
   <body>
-    <a-scene background="color: #fff">
+    <a-scene stats background="color: #fff">
       <a-assets>
           <a-mixin id="randomBlueBubble" material="color: #0098f1;" geometry="primitive: sphere" randomize="position:3.4 0 -3.4..3.6 4 -3.6; scale:0.01 0.01 0.01|0.02 0.02 0.02|0.03 0.03 0.03;"></a-mixin>
           <a-mixin id="randomYellowBubble" material="color: #ffee00;" geometry="primitive: sphere" randomize="position:1.9 0 -2.9..2.1 4 -3.1; scale:0.01 0.01 0.01|0.02 0.02 0.02|0.03 0.03 0.03;"></a-mixin>
           <a-mixin id="randomPinkBubble" material="color: #ff008d;" geometry="primitive: sphere" randomize="position:2.9 0 -1.9..3.1 4 -2.1; scale:0.01 0.01 0.01|0.02 0.02 0.02|0.03 0.03 0.03;"></a-mixin>
+          
           <a-mixin id="blueBubbleAnimation" animation="property: object3D.position.y; to: 4.5; loop: true; dir: forwards easing:easeInCubic;" randomize="animation.dur:2000..6000"></a-mixin>
           <a-mixin id="yellowBubbleAnimation" animation="property: object3D.position.y; to: 3.5; loop: true; dir: forwards easing:easeInCubic;" randomize="animation.dur:2000..6000"></a-mixin>
           <a-mixin id="pinkBubbleAnimation" animation="property: object3D.position.y; to: 3; loop: true; dir: forwards easing:easeInCubic;" randomize="animation.dur:2000..6000"></a-mixin>
       </a-assets>
-      <!-- <a-entity id="stage" environment="lighting: none; dressing:  cubes;  dressingAmount:  50000;  dressingColor:  #3cf7ed;  dressingScale:  0.05;   dressingOnPlayArea:  1;  gridColor:  #239893"></a-entity> -->
       <a-camera>
           <a-cursor material="color: #ffff00;"></a-cursor>
       </a-camera>
-
+      <!-- <a-entity entity-generator="mixin: carpetParticles; num:8000" ></a-entity> -->
       <!-- Star system -->
       <a-sky color="black"></a-sky>
       <a-entity star-system></a-entity>
@@ -46,7 +46,7 @@
         <a-box position="-4 3 -4" width="0.5" depth="0.5" height="6" rotation="0 90 0" color="#62666f" geometry="width: 8; depth: 0.1"></a-box>
         <a-box position="0 3 -8" width="0.5" depth="0.5" height="6" rotation="" color="#62666f" geometry="width: 8; depth: 0.1"></a-box>
         <a-box position="4 3 -4" width="0.5" depth="0.5" height="6" rotation="0 90 0" color="#dbdbdb" geometry="width: 8; depth: 0.1"></a-box>
-        <a-plane position="0 0 -4" rotation="-90 0 0" width="8" height="8" color="#787785"></a-plane>
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="8" height="8" color="#E774CC"></a-plane>
       </a-entity>
 
       <a-cylinder id="tube_stand" position="4 0.25 -4" color="#c3c2d2" height="1" width="0.1" geometry="height: 0.5; radius: 3; segmentsRadial: 180"></a-cylinder>
@@ -135,6 +135,8 @@
       <!-- <a-entity gltf-model="url(/assets/pillow.gltf)"></a-entity> -->
       <a-entity gltf-model="/assets/pillow.gltf" position="-2.63908 0 -2.4926" rotation="0 45 0"></a-entity>
       <a-entity gltf-model="/assets/pillow.gltf" position="-3.30729 0.77114 -3.1234" rotation="90 50 0" scale="0.5 0.5 0.5"></a-entity>
+      <!-- <a-obj-model src="/assets/carpet-2.obj" mtl="/assets/carpet-2.mtl" position="0 0.08 0" scale="0.01 0.01 0.01"></a-obj-model> -->
+      <!-- <a-obj-model src="/assets/carpet.obj" mtl="/assets/carpet.mtl" position="0 0.08 0" scale="0.01 0.01 0.01"></a-obj-model> -->
        
       <!-- Lighting -->
       <a-entity light="color: #BBB; type: ambient"></a-entity>
