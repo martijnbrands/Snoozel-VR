@@ -52,11 +52,8 @@
           <a-cursor material="color: #ffff00;"></a-cursor>
       </a-camera>
 
-      <a-sphere position="0 6 0" geometry="primitive:  sphere; radius: 3; thetaStart:  -90;  segmentsHeight:  200" material="opacity:  0.3; transparent:  true"></a-sphere>
-      <a-entity position="0 6 0" rotation="90 0 0" geometry="primitive:  ring;  radiusInner:  3;  radiusOuter:  6;"
-          material="side: double"></a-entity>
       <!-- Ambient Sound -->
-      <!-- <a-sound src="src: url(assets/ambient_sound.mov)" volume="0.5" autoplay="true"></a-sound> -->
+      <a-sound src="src: url(assets/ambient_sound.mov)" volume="0.5" autoplay="true"></a-sound>
 
       <!-- Star system -->
       <a-sky color="black"></a-sky>
@@ -73,9 +70,15 @@
         <!-- <a-plane id="back_wall" position="0 3 4" height="6" rotation="0 180 0" color="#62666f" geometry="width: 8;"></a-plane> -->
         <!-- Floor -->
         <a-plane rotation="-90 0 0" width="8" height="8" color="#973de7"></a-plane>
+        <!-- Roof -->
+        <!-- <a-sphere position="0 6 0" geometry="primitive:  sphere; radius: 3; thetaStart:  -90;  segmentsHeight:  200" material="opacity:  0.4; transparent:  true"></a-sphere> -->
+        <a-entity position="0 6 0" rotation="90 0 0" geometry="primitive:  ring;  radiusInner:  3;  radiusOuter:  6;"
+          material="side: double"></a-entity>
       </a-entity>
 
       <a-cylinder id="tube_stand" position="4 0.25 -4" color="#c3c2d2" height="1" width="0.1" geometry="height: 0.5; radius: 3; segmentsRadial: 180"></a-cylinder>
+      <!-- Bubbling water sound -->
+      <a-sound position="4 0.25 -4" src="src: url(assets/bubbling_water.mp3)" volume="0.02" autoplay="true"></a-sound>
       <!-- Blue tube -->
       <a-entity id="blue_tube">
         <a-cylinder position="3.5 0.6 -3.5" color="#96959b" height="1" width="0.1" geometry="height: 0.25; radius: 0.25;"></a-cylinder>
