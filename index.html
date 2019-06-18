@@ -65,14 +65,19 @@
       <a-entity id="room">
         <!-- Front wall -->
         <a-plane id="front_wall" position="0 3 -4" height="6" color="#62666f" geometry="width: 8;"></a-plane>
+
         <!-- Right Wall -->
         <a-plane id="right_wall" position="4 3 0" height="6" rotation="0 -90 0" color="#dbdbdb" geometry="width: 8;"></a-plane>
+
         <!-- Left Wall -->
         <a-plane id="left_wall" position="-4 3 0" height="6" rotation="0 90 0" color="#dbdbdb" geometry="width: 8;"></a-plane>
+
         <!-- Back wall -->
         <!-- <a-plane id="back_wall" position="0 3 4" height="6" rotation="0 180 0" color="#62666f" geometry="width: 8;"></a-plane> -->
+
         <!-- Floor -->
         <a-plane rotation="-90 0 0" width="8" height="8" color="#973de7"></a-plane>
+
         <!-- Roof -->
         <!-- <a-sphere position="0 6 0" geometry="primitive:  sphere; radius: 3; thetaStart:  -90;  segmentsHeight:  200" material="opacity:  0.4; transparent:  true"></a-sphere> -->
         <a-entity position="0 6 0" rotation="90 0 0" geometry="primitive:  ring;  radiusInner:  3;  radiusOuter:  6;"
@@ -81,11 +86,22 @@
 
       <!-- Poster wall -->
       <a-entity id="poster_wall">
-        <a-image src="assets/poster_1.png"  position="-3.5 2 1.5" rotation="0 90 0"></a-image>
-        <a-image src="assets/poster_2.png"  position="-3.5 2 0" rotation="0 90 0"></a-image>
-        <a-image src="assets/poster_3.png"  position="-3.5 2 -1.5" rotation="0 90 0"></a-image>
-      </a-entity>
+        <!-- Poster one -->
+        <a-image id="poster_1" src="assets/poster_1.png"  position="-3.95 2 1.5" rotation="0 90 0"></a-image>
+        <a-box position="-3.95 3.95 1.5" material="color: #545454" geometry="depth: 0.1; height: 0.1; width: 0.1"></a-box>
+        <a-light type="spot" position="-3.5 5.5 1.5" light="color: #ff00b2; angle: 10; intensity: 0.5; target: #poster_1"></a-light>
 
+        <!-- Poster two -->
+        <a-image id="poster_2" src="assets/poster_2.png"  position="-3.95 2 0" rotation="0 90 0"></a-image>
+        <a-box position="-3.95 3.95 0" material="color: #545454" geometry="depth: 0.1; height: 0.1; width: 0.1"></a-box>
+        <a-light type="spot" position="-3.5 5.5 0" light="color: #ff00b2; angle: 10; intensity: 0.5; target: #poster_2"></a-light>
+
+        <!-- Poster three -->
+        <a-image id="poster_3" src="assets/poster_3.png"  position="-3.95 2 -1.5" rotation="0 90 0"></a-image>
+        <a-box position="-3.95 3.95 -1.5" material="color: #545454" geometry="depth: 0.1; height: 0.1; width: 0.1"></a-box>
+        <a-light type="spot" position="-3.5 5.5 -1.5" light="color: #ff00b2; angle: 10; intensity: 0.5; target: #poster_3"></a-light>
+
+      </a-entity>
 
       <a-cylinder id="tube_stand" position="4 0.25 -4" color="#c3c2d2" height="1" width="0.1" geometry="height: 0.5; radius: 3; segmentsRadial: 180"></a-cylinder>
      
