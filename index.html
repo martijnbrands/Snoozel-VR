@@ -53,7 +53,10 @@
       </a-camera>
 
       <!-- Ambient Sound -->
-      <a-sound src="src: url(assets/ambient_sound.mov)" volume="0.5" autoplay="true"></a-sound>
+      <!-- <a-sound src="src: url(assets/ambient_sound.mov)" volume="0.5" autoplay="true"></a-sound> -->
+
+      <!-- Bubbling water sound -->
+      <!-- <a-sound position="4 0.25 -4" src="src: url(assets/bubbling_water.mp3)" volume="0.02" autoplay="true"></a-sound> -->
 
       <!-- Star system -->
       <a-sky color="black"></a-sky>
@@ -76,9 +79,16 @@
           material="side: double"></a-entity>
       </a-entity>
 
+      <!-- Poster wall -->
+      <a-entity id="poster_wall">
+        <a-image src="assets/poster_1.png"  position="-3.5 2 1.5" rotation="0 90 0"></a-image>
+        <a-image src="assets/poster_2.png"  position="-3.5 2 0" rotation="0 90 0"></a-image>
+        <a-image src="assets/poster_3.png"  position="-3.5 2 -1.5" rotation="0 90 0"></a-image>
+      </a-entity>
+
+
       <a-cylinder id="tube_stand" position="4 0.25 -4" color="#c3c2d2" height="1" width="0.1" geometry="height: 0.5; radius: 3; segmentsRadial: 180"></a-cylinder>
-      <!-- Bubbling water sound -->
-      <a-sound position="4 0.25 -4" src="src: url(assets/bubbling_water.mp3)" volume="0.02" autoplay="true"></a-sound>
+     
       <!-- Blue tube -->
       <a-entity id="blue_tube">
         <a-cylinder position="3.5 0.6 -3.5" color="#96959b" height="1" width="0.1" geometry="height: 0.25; radius: 0.25;"></a-cylinder>
