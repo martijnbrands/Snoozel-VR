@@ -32,31 +32,31 @@
           <a-mixin id="randomYellowBubble" material="color: #ffee00;" geometry="primitive: sphere" randomize="position:1.9 0 -2.9..2.1 4 -3.1; scale:0.01 0.01 0.01|0.02 0.02 0.02|0.03 0.03 0.03;"></a-mixin>
           <a-mixin id="randomPinkBubble" material="color: #ff008d;" geometry="primitive: sphere" randomize="position:2.9 0 -1.9..3.1 4 -2.1; scale:0.01 0.01 0.01|0.02 0.02 0.02|0.03 0.03 0.03;"></a-mixin>
           
-          <a-mixin id="blueBubbleAnimation" animation="property: object3D.position.y; to: 4.5; loop: true; dir: forwards easing:easeInCubic;" randomize="animation.dur:2000..6000"></a-mixin>
-          <a-mixin id="yellowBubbleAnimation" animation="property: object3D.position.y; to: 3.5; loop: true; dir: forwards easing:easeInCubic;" randomize="animation.dur:2000..6000"></a-mixin>
-          <a-mixin id="pinkBubbleAnimation" animation="property: object3D.position.y; to: 3; loop: true; dir: forwards easing:easeInCubic;" randomize="animation.dur:2000..6000"></a-mixin>
+          <a-mixin id="blueBubbleAnimation" animation="property: object3D.position.y; to: 4.5; loop: true; dir: forwards; easing:easeInCubic;" randomize="animation.dur:2000..6000"></a-mixin>
+          <a-mixin id="yellowBubbleAnimation" animation="property: object3D.position.y; to: 3.5; loop: true; dir: forwards; easing:easeInCubic;" randomize="animation.dur:2000..6000"></a-mixin>
+          <a-mixin id="pinkBubbleAnimation" animation="property: object3D.position.y; to: 3; loop: true; dir: forwards; easing:easeInCubic;" randomize="animation.dur:2000..6000"></a-mixin>
 
-          <script id="forest" type="text/x-nunjucks-template">
-            {% for x in range(0, 10) %}
-              {% for z in range(0, 10) %}
-                {% for y in range(0, 10) %}
-                <a-entity geometry="primitive: box; width: 1; height: 1;" rotation="0 0 0" position="{{ x }} 0 {{ z }}" animation="property: rotation; to: 0 0 90; loop: true; dur: 5000; delay:1000}">
-                </a-entity>
-                {% endfor %}
+          <script id="light_globes" type="text/x-nunjucks-template">
+            {% for x in range(0, 5) %}
+              <a-cylinder position=" 3.5 3 {{ x / 2 }}" geometry="height: 6; radius: 0.01"></a-cylinder> 
+              {% for y in range(1, 6) %}
+              <a-entity geometry="primitive: sphere; radius: 0.2" rotation="0 0 0" position="3.5 {{ y }} {{ x / 2 }}" material="color: #FFF; shader: flat" animation="property: material.color; to: #cafff2; dir: alternate; loop: true; dur: 3000; delay: {{ x * 1000  }};">
+              </a-entity>
               {% endfor %}
             {% endfor %}
           </script>
       </a-assets>
+     
       <!-- Camera -->
-      <a-camera look-controls wasd-controls="acceleration: 200">
+      <a-camera id="camera" look-controls wasd-controls="acceleration: 200">
           <a-cursor material="color: #ffff00;"></a-cursor>
       </a-camera>
 
       <!-- Ambient Sound -->
-      <!-- <a-sound src="src: url(assets/ambient_sound.mp3)" volume="0.5" autoplay="true"></a-sound> -->
+      <a-sound src="src: url(assets/ambient_sound.mp3)" loop="true" volume="1" autoplay="true"></a-sound>
 
       <!-- Bubbling water sound -->
-      <!-- <a-sound position="4 0.25 -4" src="src: url(assets/bubbling_water.mp3)" volume="0.02" autoplay="true"></a-sound> -->
+      <a-sound position="4 0.25 -4" src="src: url(assets/bubbling_water.mp3)" loop="true" volume="0.1" autoplay="true"></a-sound>
 
       <!-- Star system -->
       <a-sky color="black"></a-sky>
@@ -83,6 +83,8 @@
         <a-entity position="0 6 0" rotation="90 0 0" geometry="primitive:  ring;  radiusInner:  3;  radiusOuter:  6;"
           material="side: double"></a-entity>
       </a-entity>
+
+      <a-cylinder position="-3.99 0 -3.99"  material="shader: flat; blending: none; color: #ac22ff" geometry="height: 0.001; radius: 6" rotation="90 0 0"></a-cylinder>
 
       <!-- Poster wall -->
       <a-entity id="poster_wall">
@@ -130,7 +132,10 @@
           <!-- <a-light type="spot" position="3 0 -3" rotation="90 0 0" light="type:  spot;  color:  #00f0ff;  angle:  15;  distance:  3.5;  intensity:  3"></a-light> -->
           <!-- IMPORTANT FIRST ADD THE ANIMATION MIXIN AND THEN THE GEOMETRY MIXIN -->
           <a-entity entity-generator="mixin: pinkBubbleAnimation randomPinkBubble; num:300" ></a-entity>
-        </a-entity>
+      </a-entity>
+
+      <!-- Light globes -->
+      <a-entity template="src: #light_globes"></a-entity>
 
       <a-entity id="grid-wall">
         <!-- Bottom row -->
@@ -138,90 +143,90 @@
             geometry="width:2; height:2;"
             event-set__enter="_event: mouseenter; color: #00fff5;"
             event-set__leave="_event: mouseleave; color: #8a37f6;"
-            sound="src: url(assets/pop_1.mp3; on: mouseenter">
+            sound="src: url(assets/pop_1.mp3); on: click">
         </a-plane>
         <a-plane position="1 1 4" color="#8a37f6" rotation="0 180 0" 
             geometry="width:2; height:2;"
             event-set__enter="_event: mouseenter;  color: #ff66cf;"
             event-set__leave="_event: mouseleave; color: #8a37f6;"
-            sound="src: url(assets/pop_2.mp3; on: mouseenter">
+            sound="src: url(assets/pop_2.mp3); on: mouseenter">
         </a-plane>
         <a-plane position="-1 1 4" color="#8a37f6" rotation="0 180 0" 
             geometry="width:2; height:2;"
             event-set__enter="_event: mouseenter; color: #ffe559;"
             event-set__leave="_event: mouseleave; color: #8a37f6;"
-            sound="src: url(assets/pop_3.mp3; on: mouseenter">
+            sound="src: url(assets/pop_3.mp3); on: mouseenter">
         </a-plane>
         <a-plane position="-3 1 4" color="#8a37f6" rotation="0 180 0" 
             geometry="width:2; height:2;"
             event-set__enter="_event: mouseenter; color: #6aff99;"
             event-set__leave="_event: mouseleave; color: #8a37f6;"
-            sound="src: url(assets/pop_1.mp3; on: mouseenter">
+            sound="src: url(assets/pop_1.mp3); on: mouseenter">
         </a-plane>
         <!-- Middle row  -->
         <a-plane position="3 3 4" color="#8a37f6" rotation="0 180 0" 
             geometry="width:2; height:2;"
             event-set__enter="_event: mouseenter; color: #6aff99;"
             event-set__leave="_event: mouseleave; color: #8a37f6;"
-            sound="src: url(assets/pop_2.mp3; on: mouseenter">
+            sound="src: url(assets/pop_2.mp3); on: mouseenter">
         </a-plane>
         <a-plane position="1 3 4" color="#8a37f6" rotation="0 180 0" 
             geometry="width:2; height:2;"
             event-set__enter="_event: mouseenter; color: #ffe559;"
             event-set__leave="_event: mouseleave; color: #8a37f6;"
-            sound="src: url(assets/pop_3.mp3; on: mouseenter">
+            sound="src: url(assets/pop_3.mp3); on: mouseenter">
         </a-plane>
         <a-plane position="-1 3 4" color="#8a37f6" rotation="0 180 0" 
             geometry="width:2; height:2;"
             event-set__enter="_event: mouseenter; color: #ff66cf;"
             event-set__leave="_event: mouseleave; color: #8a37f6;"
-            sound="src: url(assets/pop_1.mp3; on: mouseenter">
+            sound="src: url(assets/pop_1.mp3); on: mouseenter">
         </a-plane>
         <a-plane position="-3 3 4" color="#8a37f6" rotation="0 180 0" 
             geometry="width:2; height:2;"
             event-set__enter="_event: mouseenter; color: #00fff5;"
             event-set__leave="_event: mouseleave; color: #8a37f6;"
-            sound="src: url(assets/pop_2.mp3; on: mouseenter">
+            sound="src: url(assets/pop_2.mp3); on: mouseenter">
         </a-plane>
         <!-- Top row  -->
         <a-plane position="3 5 4" color="#8a37f6" rotation="0 180 0" 
             geometry="width:2; height:2;"
             event-set__enter="_event: mouseenter; color: #00fff5;"
             event-set__leave="_event: mouseleave; color: #8a37f6;"
-            sound="src: url(assets/pop_3.mp3; on: mouseenter">
+            sound="src: url(assets/pop_3.mp3); on: mouseenter">
         </a-plane>
         <a-plane position="1 5 4" color="#8a37f6" rotation="0 180 0" 
             geometry="width:2; height:2;"
             event-set__enter="_event: mouseenter; color: #ff66cf;"
             event-set__leave="_event: mouseleave; color: #8a37f6;"
-            sound="src: url(assets/pop_1.mp3; on: mouseenter">
+            sound="src: url(assets/pop_1.mp3); on: mouseenter">
         </a-plane>
         <a-plane position="-1 5 4" color="#8a37f6" rotation="0 180 0" 
             geometry="width:2; height:2;"
             event-set__enter="_event: mouseenter; color: #ffe559;"
             event-set__leave="_event: mouseleave; color: #8a37f6;"
-            sound="src: url(assets/pop_2.mp3; on: mouseenter">
+            sound="src: url(assets/pop_2.mp3); on: mouseenter">
         </a-plane>
         <a-plane position="-3 5 4" color="#8a37f6" rotation="0 180 0" 
             geometry="width:2; height:2;"
             event-set__enter="_event: mouseenter; color: #6aff99;"
             event-set__leave="_event: mouseleave; color: #8a37f6;"
-            sound="src: url(assets/pop_3.mp3; on: mouseenter">
+            sound="src: url(assets/pop_3.mp3); on: mouseenter">
         </a-plane>
       </a-entity>
 
       <!-- Pillow -->
       <!-- <a-entity gltf-model="url(/assets/pillow.gltf)"></a-entity> -->
-      <a-entity gltf-model="/assets/pillow.gltf" position="-2.63908 0 -2.4926" rotation="0 45 0"></a-entity>
-      <a-entity gltf-model="/assets/pillow.gltf" position="-3.30729 0.77114 -3.1234" rotation="90 50 0" scale="0.5 0.5 0.5"></a-entity>
+      <!-- <a-entity gltf-model="/assets/pillow.gltf" position="-2.63908 0 -2.4926" rotation="0 45 0"></a-entity> -->
+      <!-- <a-entity gltf-model="/assets/pillow.gltf" position="-3.30729 0.77114 -3.1234" rotation="90 50 0" scale="0.5 0.5 0.5"></a-entity> -->
       <!-- <a-obj-model src="/assets/carpet-2.obj" mtl="/assets/carpet-2.mtl" position="0 0.08 0" scale="0.01 0.01 0.01"></a-obj-model> -->
-      <a-obj-model src="/assets/carpet.obj" mtl="/assets/carpet.mtl" position="0 0.08 0" scale="0.01 0.01 0.01"></a-obj-model> -->
+      <!-- <a-obj-model src="/assets/carpet-3.obj" mtl="/assets/carpet-3.mtl" position="0 0.08 0" scale="0.01 0.01 0.01"></a-obj-model> -->
        
       <!-- Lighting -->
       <a-entity light="color: #BBB; type: ambient"></a-entity>
       <a-entity light="intensity: 0.6; castShadow: true" position="-0.5 1 1"></a-entity>
       <!-- <a-light type="point" color="blue" position="0 6 0" light="color: #739efc"></a-light> -->
-      <a-light type="spot" color="pink" position="0 4 0" rotation="70 50 -70" light="color: #ff00b2"></a-light>
+      <!-- <a-light type="spot" color="pink" position="0 4 0" rotation="70 50 -70" light="color: #ff00b2"></a-light> -->
       <!-- <a-light type="spot" animation="property: light.color; to: #ff00e8; loop: true; dir: alternate; dur: 1000" position="2.60474 0.47545 -2.82373" rotation="14.807521257360996 -86.29775718701434 -101.84382104229896" light="intensity: 0.5 color: #00ffe4; angle: 5"> -->
       </a-light>
     </a-scene>
