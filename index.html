@@ -36,11 +36,20 @@
           <a-mixin id="yellowBubbleAnimation" animation="property: object3D.position.y; to: 3.5; loop: true; dir: forwards; easing:easeInCubic;" randomize="animation.dur:2000..6000"></a-mixin>
           <a-mixin id="pinkBubbleAnimation" animation="property: object3D.position.y; to: 3; loop: true; dir: forwards; easing:easeInCubic;" randomize="animation.dur:2000..6000"></a-mixin>
 
+          <script id="rotating_cubes" type="text/x-nunjucks-template">
+            {% for x in range(1, 6) %}
+              <a-cylinder position=" {{ -x / 2 }} 3 -3.5" geometry="height: 6; radius: 0.01"></a-cylinder> 
+              {% for y in range(1, 6) %}
+              <a-entity geometry="primitive: box; width: 0.25; height: 0.25; depth: 0.25"; rotation="0 0 0" position="{{ -x / 2}} {{ y }} -3.5" material="color: #ff00bf; shader: standard" animation="property: rotation; to: 0 360 0; dir: forwards; loop: true; dur: 3000; delay: {{ x * 1000  }};">
+              </a-entity>
+              {% endfor %}
+            {% endfor %}
+          </script>
           <script id="light_globes" type="text/x-nunjucks-template">
             {% for x in range(0, 5) %}
               <a-cylinder position=" 3.5 3 {{ x / 2 }}" geometry="height: 6; radius: 0.01"></a-cylinder> 
               {% for y in range(1, 6) %}
-              <a-entity geometry="primitive: sphere; radius: 0.2" rotation="0 0 0" position="3.5 {{ y }} {{ x / 2 }}" material="color: #FFF; shader: flat" animation="property: material.color; to: #cafff2; dir: alternate; loop: true; dur: 3000; delay: {{ x * 1000  }};">
+              <a-entity geometry="primitive: sphere; radius: 0.2" rotation="0 0 0" position="3.5 {{ y }} {{ x / 2 }}" material="color: #FFF; shader: standard" animation="property: material.color; to: #cafff2; dir: alternate; loop: true; dur: 3000; delay: {{ x * 1000  }};">
               </a-entity>
               {% endfor %}
             {% endfor %}
@@ -130,6 +139,9 @@
           <a-entity entity-generator="mixin: pinkBubbleAnimation randomPinkBubble; num:300" ></a-entity>
       </a-entity>
 
+      <!-- Rotating cubes -->
+      <a-entity template="src: #rotating_cubes"></a-entity>
+      
       <!-- Light globes -->
       <a-entity template="src: #light_globes"></a-entity>
 
@@ -214,7 +226,6 @@
       <!-- Lighting -->
       <a-entity light="color: #BBB; type: ambient"></a-entity>
       <a-entity light="intensity: 0.6; castShadow: true" position="-0.5 1 1"></a-entity>
-      </a-light>
     </a-scene>
   </body>
 </html>
