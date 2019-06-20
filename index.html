@@ -79,7 +79,6 @@
         <a-plane rotation="-90 0 0" width="8" height="8" color="#973de7"></a-plane>
 
         <!-- Roof -->
-        <!-- <a-sphere position="0 6 0" geometry="primitive:  sphere; radius: 3; thetaStart:  -90;  segmentsHeight:  200" material="opacity:  0.4; transparent:  true"></a-sphere> -->
         <a-entity position="0 6 0" rotation="90 0 0" geometry="primitive:  ring;  radiusInner:  3;  radiusOuter:  6;"
           material="side: double"></a-entity>
       </a-entity>
@@ -111,7 +110,6 @@
       <a-entity id="blue_tube">
         <a-cylinder position="3.5 0.6 -3.5" color="#96959b" height="1" width="0.1" geometry="height: 0.25; radius: 0.25;"></a-cylinder>
         <a-cylinder position="3.5 0.6 -3.5" color="#0098f1" height="8" width="0.1" geometry="height: 8; radius: 0.2;" open-ended="true" material="transparent: true; opacity: 0.5"></a-cylinder>
-        <!-- <a-light type="spot" position="3 0 -3" rotation="90 0 0" light="type:  spot;  color:  #00f0ff;  angle:  15;  distance:  3.5;  intensity:  3"></a-light> -->
         <!-- IMPORTANT FIRST ADD THE ANIMATION MIXIN AND THEN THE GEOMETRY MIXIN -->
         <a-entity entity-generator="mixin: blueBubbleAnimation randomBlueBubble; num:300" ></a-entity>
       </a-entity>
@@ -120,7 +118,6 @@
       <a-entity id="yellow_tube">
         <a-cylinder position="2 0.6 -3" color="#96959b" height="1" width="0.1" geometry="height: 0.5; radius: 0.5;"></a-cylinder>
         <a-cylinder position="2 0.6 -3" color="#ffee00" height="8" width="0.1" geometry="height: 6; radius: 0.2;" open-ended="true" material="transparent: true; opacity: 0.5"></a-cylinder>
-        <!-- <a-light type="spot" position="3 0 -3" rotation="90 0 0" light="type:  spot;  color:  #00f0ff;  angle:  15;  distance:  3.5;  intensity:  3"></a-light> -->
         <!-- IMPORTANT FIRST ADD THE ANIMATION MIXIN AND THEN THE GEOMETRY MIXIN -->
         <a-entity entity-generator="mixin: yellowBubbleAnimation randomYellowBubble; num:300" ></a-entity>
       </a-entity>
@@ -129,7 +126,6 @@
       <a-entity id="pink_tube">
           <a-cylinder position="3 0.6 -2" color="#96959b" height="1" width="0.1" geometry="height: 0.3; radius: 0.3;"></a-cylinder>
           <a-cylinder position="3 0.6 -2" color="#ff008d" height="8" width="0.1" geometry="height: 5; radius: 0.2;" open-ended="true" material="transparent: true; opacity: 0.5"></a-cylinder>
-          <!-- <a-light type="spot" position="3 0 -3" rotation="90 0 0" light="type:  spot;  color:  #00f0ff;  angle:  15;  distance:  3.5;  intensity:  3"></a-light> -->
           <!-- IMPORTANT FIRST ADD THE ANIMATION MIXIN AND THEN THE GEOMETRY MIXIN -->
           <a-entity entity-generator="mixin: pinkBubbleAnimation randomPinkBubble; num:300" ></a-entity>
       </a-entity>
@@ -214,20 +210,10 @@
             sound="src: url(assets/pop_3.mp3); on: mouseenter">
         </a-plane>
       </a-entity>
-
-      <!-- Pillow -->
-      <!-- <a-entity gltf-model="url(/assets/pillow.gltf)"></a-entity> -->
-      <!-- <a-entity gltf-model="/assets/pillow.gltf" position="-2.63908 0 -2.4926" rotation="0 45 0"></a-entity> -->
-      <!-- <a-entity gltf-model="/assets/pillow.gltf" position="-3.30729 0.77114 -3.1234" rotation="90 50 0" scale="0.5 0.5 0.5"></a-entity> -->
-      <!-- <a-obj-model src="/assets/carpet-2.obj" mtl="/assets/carpet-2.mtl" position="0 0.08 0" scale="0.01 0.01 0.01"></a-obj-model> -->
-      <!-- <a-obj-model src="/assets/carpet-3.obj" mtl="/assets/carpet-3.mtl" position="0 0.08 0" scale="0.01 0.01 0.01"></a-obj-model> -->
        
       <!-- Lighting -->
       <a-entity light="color: #BBB; type: ambient"></a-entity>
       <a-entity light="intensity: 0.6; castShadow: true" position="-0.5 1 1"></a-entity>
-      <!-- <a-light type="point" color="blue" position="0 6 0" light="color: #739efc"></a-light> -->
-      <!-- <a-light type="spot" color="pink" position="0 4 0" rotation="70 50 -70" light="color: #ff00b2"></a-light> -->
-      <!-- <a-light type="spot" animation="property: light.color; to: #ff00e8; loop: true; dir: alternate; dur: 1000" position="2.60474 0.47545 -2.82373" rotation="14.807521257360996 -86.29775718701434 -101.84382104229896" light="intensity: 0.5 color: #00ffe4; angle: 5"> -->
       </a-light>
     </a-scene>
   </body>
