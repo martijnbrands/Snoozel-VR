@@ -73,10 +73,12 @@
 
       <a-entity id="room">
         <!-- Front wall -->
-        <a-plane id="front_wall" position="0 3 -4" height="6" color="#62666f" geometry="width: 8;"></a-plane>
+        <a-plane id="front_wall" position="0 3 -4" height="6" color="#8205ff" geometry="width: 8;"></a-plane>
+        <a-cylinder position="-3.99 0 -3.99"  material="shader: flat; blending: none; color: #ac22ff" geometry="height: 0.001; radius: 6" rotation="90 0 0"></a-cylinder>
 
         <!-- Right Wall -->
-        <a-plane id="right_wall" position="4 3 0" height="6" rotation="0 -90 0" color="#dbdbdb" geometry="width: 8;"></a-plane>
+        <a-plane id="right_wall" position="4 3 0" height="6" rotation="0 -90 0" color="#7600db" geometry="width: 8;"></a-plane>
+        <a-cylinder position="4 3.5 4" material="shader: flat; blending: none; color: #852ae8" geometry="height: 0.001; radius: 4" rotation="90 90 0"></a-cylinder>
 
         <!-- Left Wall -->
         <a-plane id="left_wall" position="-4 3 0" height="6" rotation="0 90 0" color="#973de7" geometry="width: 8;" ></a-plane>
@@ -89,10 +91,9 @@
 
         <!-- Roof -->
         <a-entity position="0 6 0" rotation="90 0 0" geometry="primitive:  ring;  radiusInner:  3;  radiusOuter:  6;"
-          material="side: double"></a-entity>
+          material="color: #070707; shader: flat; side: double"></a-entity>
       </a-entity>
 
-      <a-cylinder position="-3.99 0 -3.99"  material="shader: flat; blending: none; color: #ac22ff" geometry="height: 0.001; radius: 6" rotation="90 0 0"></a-cylinder>
 
       <!-- Poster wall -->
       <a-entity id="poster_wall">
