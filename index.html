@@ -94,7 +94,6 @@
           material="color: #070707; shader: flat; side: double"></a-entity>
       </a-entity>
 
-
       <!-- Poster wall -->
       <a-entity id="poster_wall">
         <!-- Poster one -->
@@ -111,9 +110,9 @@
         <a-image id="poster_3" src="assets/poster_3.png"  position="-3.95 2 -1.5" rotation="0 90 0"></a-image>
         <a-box position="-3.95 3.95 -1.5" material="color: #545454" geometry="depth: 0.1; height: 0.1; width: 0.1"></a-box>
         <a-light type="spot" position="-3.5 5.5 -1.5" light="color: #ff00b2; angle: 10; intensity: 0.5; target: #poster_3"></a-light>
-
       </a-entity>
 
+      <!-- Tube stand  -->
       <a-cylinder id="tube_stand" position="4 0.25 -4" color="#c3c2d2" height="1" width="0.1" geometry="height: 0.5; radius: 3; segmentsRadial: 180"></a-cylinder>
      
       <!-- Blue tube -->
@@ -146,6 +145,7 @@
       <!-- Light globes -->
       <a-entity template="src: #light_globes"></a-entity>
 
+      <!-- Grid wall  -->
       <a-entity id="grid-wall">
         <!-- Bottom row -->
         <a-plane position="3 1 4" color="#8a37f6" rotation="0 180 0" 
